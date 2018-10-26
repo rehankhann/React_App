@@ -3,4 +3,7 @@
 }
 .red{color: red;}
 .bold{font-weight: bold;}
+.App button{background:green; color:white; padding:8px 15px; border:'0'}
+.App button:hover{background: #ddd; color: #fff;}
+.App button.red{background: red;}
 

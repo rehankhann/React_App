@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 /*import Radium , {StyleRoot} from 'radium'*/
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person.js'
 import UserIn from './UserInput/UserInput.js'
 import Userout from './Useroutput/Useroutput.js'
@@ -110,22 +110,20 @@ class App extends Component {
     }
 
     const togglebtn = {
-      backgroundColor:'green',
-      color:'white',
-      padding:'8px 15px',
-      border:'0'
+      
     }
 
     const conditionalclass = [];
     if(this.state.Persons.length <= 2){
-      conditionalclass.push('red')
+      conditionalclass.push(classes.red)
     }
     if(this.state.Persons.length <= 1){
-      conditionalclass.push('bold');
+      conditionalclass.push(classes.bold);
     }
 
 
     let persons = null ;
+    let btnclass = ''
 
     if(this.state.showpersons){
       persons = (          
@@ -139,7 +137,7 @@ class App extends Component {
         <hr></hr>
 
       </div>);
-      togglebtn.backgroundColor = 'red';
+      btnclass = classes.red
     }
 
     let charctercount = 'Text long enough';
@@ -149,10 +147,10 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1 className={conditionalclass.join(' ')}>Hello World</h1>
           <button style={displaynone} onClick={() => this.nameswitch('maximillain')}>Switch Name</button>
-          <button style={togglebtn} onClick ={this.togglepersons}>Switch Name</button>
+          <button class={btnclass} onClick ={this.togglepersons}>Switch Name</button>
           {persons}
           <hr></hr>
           <UserIn currentvalue={this.state.username}></UserIn>
